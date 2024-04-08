@@ -14,6 +14,14 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
 }
+/*各見出しスタイル*/
+h2
+{
+    text-align: center; /* テキストを中央揃えにする */
+    font-weight: bold; /* テキストを太字にする */
+    margin-top: 20px; /* 上部のスペース */
+    margin-bottom: 20px; /* 下部のスペース */
+}
 
 /* 画像グリッドスタイル */
 .image-grid {
@@ -30,4 +38,8 @@ h1 {
 .image-item img {
     width: 100%;
     height: auto;
+}
+.full-width {
+    grid-column: 1 / -1; /* グリッドの全幅を使用 */
+    text-align: center; /* 中央揃え */
 }
