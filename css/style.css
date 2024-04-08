@@ -185,19 +185,40 @@ body {
 
 /* スマートフォン向けのスタイル */
 @media screen and (max-width: 480px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* 1列レイアウトにする */
+    }
+
     .image-item img {
-        width: 100%; /* 画像の幅をさらに増やす */
+        width: 100%; /* 画像を幅いっぱいに表示 */
+        margin-top: 15px; /* 画像の上の余白を調整 */
+        margin-bottom: 15px; /* 画像の下の余白を調整 */
     }
 
     h1, h2, h4 {
-        font-size: 1.2rem; /* 見出しのフォントサイズをさらに小さくする */
+        font-size: 1.2rem; /* 見出しのフォントサイズを小さくする */
+        margin-top: 10px; /* 見出しの上の余白を調整 */
+        margin-bottom: 10px; /* 見出しの下の余白を調整 */
+    }
+
+    .toc ul {
+        flex-direction: column; /* 目次リストを縦に並べる */
+        align-items: center; /* 中央揃えにする */
+    }
+
+    .toc ul li {
+        margin-bottom: 10px; /* リスト項目間の余白を設定 */
     }
 
     .toc ul li a {
-        font-size: 1rem; /* 目次のフォントサイズをさらに調整 */
+        font-size: 1rem; /* 目次のフォントサイズを小さくする */
     }
 
     .footer-banner {
-        font-size: 0.8rem; /* フッターバナーのフォントサイズを調整 */
+        font-size: 0.8rem; /* フッターバナーのフォントサイズを小さくする */
+    }
+
+    p.description {
+        font-size: 0.8rem; /* 説明文のフォントサイズを小さくする */
     }
 }
