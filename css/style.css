@@ -1,0 +1,33 @@
+@charset "utf-8";
+p{
+    color: #36a93b;
+}
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* メイン見出しスタイル */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 画像グリッドスタイル */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+/* 各画像アイテムのスタイル */
+.image-item {
+    text-align: center;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+}
