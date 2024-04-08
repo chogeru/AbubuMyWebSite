@@ -132,6 +132,7 @@ p.description {
 /* 灰色バナーのスタイル */
 .toc-banner {
     background-color: orange;
+    justify-content: center; /* 中央揃え */
     padding: 10px 0;
     margin-top: 50px; /* 画像の上部に20pxのスペースを追加 */
     margin-bottom: 50px; /* 画像の下部に20pxのスペースを追加 */
@@ -148,6 +149,7 @@ p.description {
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #c1c1c1; /* 薄い灰色の背景色 */
+    -webkit-text-size-adjust: 100%; /* iOSのSafariでのフォントサイズの変更を防ぐ */
 }
 .footer-banner {
     background-color: #000; /* 黒色の背景 */
