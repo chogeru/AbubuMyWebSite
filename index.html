@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abubuポートフォリオ</title>
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
     <!-- 動画のセクション -->
@@ -15,7 +16,20 @@
 
     <!-- メイン見出し -->
     <h1>ポートフォリオ(専門学校穴吹デザインカレッジ(Abubu))</h1>
-    <h2>ゲーム作品</h2>
+     <!-- 目次 -->
+     <div class="toc-banner">
+        <!-- 目次を横並びにするためのdivタグ -->
+        <div class="toc">
+            <ul>
+                <li><a href="#games">ゲーム作品</a></li>
+                <li><a href="#vrchat">VRChat</a></li>
+                <li><a href="#cluster">Cluster</a></li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <h2 id="games">ゲーム作品</h2>
 
     <!-- 画像と見出しのグリッド -->
     <div class="image-grid">
@@ -25,8 +39,7 @@
             <h3>FantasyConnect</h3>
             <p class="description">FantasyConnectはUnityを使用し作成された3Dアクションゲームです！<br>
                 デザイン展2024にて最優秀賞を授与しました<br>
-                開発期間2023年12月 - 2024年1月
-            </p>
+                <span class="development-period">開発期間2023年12月 - 2024年1月</span>            </p>
         </div>
 
         <div class="image-item">
@@ -34,13 +47,13 @@
             <h3>Monster Hunters</h3>
             <p class="description">このアクションゲームはMonobit Unity Networking 2.0を使用して作成を行い、
                 商店街のゲームの出店イベントに参加し多くの人に遊んでもらいました。<br>
-                開発期間 2023年8月 - 2024年1月
+                <span class="development-period"> 開発期間 2023年8月 - 2024年1月</span>
             </p>
         </div>
 
         <!-- 新しい見出しを含むdiv -->
         <div class="full-width">
-            <h2>メタバースワールドアップロード</h2>
+            <h2 id="vrchat">メタバースワールドアップロード</h2>
         </div>
 
         <div class="full-width">
@@ -66,7 +79,7 @@
   
 
         <div class="image-item full-width"> <!-- image-item と full-width のクラスを同時に指定 -->
-            <h4>Cluster</h4>
+            <h2 id="cluster">Cluster</h2>
             <p class="description">"Cluster"にてアップロードした、
                 ワールドになります。
             </p>
@@ -119,6 +132,26 @@
             const images = document.querySelectorAll(".image-item img");
             images.forEach(img => {
                 observer.observe(img);
+            });
+        });
+    </script>
+       <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 目次のリンクをクリックした時のスクロール処理
+            document.querySelectorAll('ul li a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
         });
     </script>

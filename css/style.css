@@ -117,3 +117,35 @@ p.description {
         max-width: 100%; /* スマートフォンなどの小さい画面では幅を100%に */
     }
 }
+/* 目次のスタイル */
+.toc ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around; /* リスト項目を均等に配置 */
+    padding: 0;
+}
+
+.toc ul li {
+    display: inline;
+}
+
+/* 灰色バナーのスタイル */
+.toc-banner {
+    background-color: orange;
+    padding: 10px 0;
+    margin-top: 50px; /* 画像の上部に20pxのスペースを追加 */
+    margin-bottom: 50px; /* 画像の下部に20pxのスペースを追加 */
+}
+.toc ul li a {
+    font-size: 30px; 
+    font-weight: bold; /* テキストを太字にする */
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}.development-period {
+    border-bottom: 1px solid #000; /* 黒色の1pxの下線 */
+    padding-bottom: 2px; /* 下線とテキストの間隔 */
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #c1c1c1; /* 薄い灰色の背景色 */
+}
