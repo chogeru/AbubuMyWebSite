@@ -7,31 +7,44 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-        <!-- 動画のセクション -->
-        <video controls>
-            <source src="video/FantasyConnectMove.mp4" type="video/mp4">
-            お使いのブラウザは動画タグをサポートしていません。            お使いのブラウザは動画タグをサポートしていません。
-        </video>
-    
-        <!-- メイン見出し -->
-        <h1>ポートフォリオ(専門学校穴吹デザインカレッジ(Abubu))</h1>
-        <h2>ゲーム作品</h2>
-    
+    <!-- 動画のセクション -->
+    <video controls autoplay>
+        <source src="video/FantasyConnectMove.mp4" type="video/mp4">
+        お使いのブラウザは動画タグをサポートしていません。お使いのブラウザは動画タグをサポートしていません。
+    </video>
+
+    <!-- メイン見出し -->
+    <h1>ポートフォリオ(専門学校穴吹デザインカレッジ(Abubu))</h1>
+    <h2>ゲーム作品</h2>
+
     <!-- 画像と見出しのグリッド -->
     <div class="image-grid">
         <!-- 1行目 -->
         <div class="image-item">
             <img src="image/FantasyConnectTitle.png" alt="画像1">
             <h3>FantasyConnect</h3>
+            <p class="description">FantasyConnectはUnityを使用し作成された3Dアクションゲームです！<br>
+                デザイン展2024にて最優秀賞を授与しました<br>
+                開発期間2023年12月 - 2024年1月
+            </p>
         </div>
+
         <div class="image-item">
             <img src="image/MonsterHuntersTitle.png" alt="画像2">
             <h3>Monster Hunters</h3>
+            <p class="description">このアクションゲームはMonobit Unity Networking 2.0を使用して作成を行い、
+                商店街のゲームの出店イベントに参加し多くの人に遊んでもらいました。<br>
+                開発期間 2023年8月 - 2024年1月
+            </p>
         </div>
 
         <!-- 新しい見出しを含むdiv -->
         <div class="full-width">
             <h2>メタバースワールドアップロード</h2>
+        </div>
+
+        <div class="full-width">
+            <h4>VRChat</h4>
         </div>
 
         <!-- 2行目 -->
@@ -46,5 +59,26 @@
         <!-- 追加の画像と見出し -->
         <!-- ... -->
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    } else {
+                        entry.target.classList.remove("visible");
+                    }
+                });
+            }, {
+                threshold: 0.5 // 50%以上が見えたらトリガー
+            });
+        
+            // 監視対象の画像要素を選択
+            const images = document.querySelectorAll(".image-item img");
+            images.forEach(img => {
+                observer.observe(img);
+            });
+        });
+    </script>
 </body>
 </html>

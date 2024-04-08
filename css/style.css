@@ -2,6 +2,42 @@
 p{
     color: #36a93b;
 }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); }
+    to { transform: scale(0.8); }
+}
+/* 初期状態では透明度を0に設定 */
+.image-item img {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* 視界に入ったときのスタイル */
+.image-item img.visible {
+    opacity: 1;
+}
+/* 見出しのアニメーション適用 */
+h1, h2, h4 {
+    animation: fadeIn 1s ease-in-out, zoomIn 1s ease-in-out;
+}
+
+/* 画像のホバーアニメーション */
+.image-item img:hover {
+    transform: scale(1.1);
+    transition: transform 0.1s ease-in-out;
+}
+
+/* フォントの適用例（Google Fontsから選択） */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
 video {
     width: 100%;
     height: auto;
@@ -15,14 +51,30 @@ h1 {
     margin-bottom: 20px;
 }
 /*各見出しスタイル*/
-h2
+h2 {
+    background-color: orange;
+    color: white;
+    margin-top: 10%; /* 上部のスペース */
+    margin-bottom: 10px; /* 下部のスペースを30pxに設定 */
+    padding: 5px 0; /* 上下のパディングを保持 */
+    text-align: center; /* テキストを中央揃えに */
+    display: block; /* ブロックレベルの表示 */
+    margin: 0 auto; /* 上下マージンなし、左右マージンで自動調整 */
+    width: fit-content; /* テキストの内容に合わせて幅を調整 */
+    padding-left: 15%; /* 左パディングをテキスト幅の約2倍に */
+    padding-right: 15%; /* 右パディングをテキスト幅の約2倍に */
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/*プラットフォーム名*/
+h4
 {
     text-align: center; /* テキストを中央揃えにする */
     font-weight: bold; /* テキストを太字にする */
-    margin-top: 20px; /* 上部のスペース */
-    margin-bottom: 20px; /* 下部のスペース */
+    margin-top: 15px; /* 上部のスペース */
+    margin-bottom: 15px; /* 下部のスペース */
+    font-size: 20px;
 }
-
 /* 画像グリッドスタイル */
 .image-grid {
     display: grid;
@@ -33,13 +85,35 @@ h2
 /* 各画像アイテムのスタイル */
 .image-item {
     text-align: center;
+    margin-bottom: 30px; /* 追加：画像間のマージンを調整 */
+
 }
 
 .image-item img {
-    width: 100%;
+    width: 70%;
     height: auto;
+    border: 4.5px solid black; /* 黒い太めのボーダーを追加 */
+    box-sizing: border-box; /* ボーダーを含めたサイズ計算に変更 */
+    margin-top: 30px; /* 画像の上部に20pxのスペースを追加 */
+    margin-bottom: 5px; /* 画像の下部に20pxのスペースを追加 */
 }
 .full-width {
     grid-column: 1 / -1; /* グリッドの全幅を使用 */
     text-align: center; /* 中央揃え */
+}
+/* テキストのスタイル */
+p.description {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 10px;
+    color: #333333;
+    word-wrap: break-word; /* 長い単語でも改行する */
+    max-width: 500px; /* テキストの最大幅を設定 */
+    margin-left: auto;  /* Centers the block element inside its container */
+    margin-right: auto;
+}
+@media screen and (max-width: 600px) {
+    p.description {
+        max-width: 100%; /* スマートフォンなどの小さい画面では幅を100%に */
+    }
 }
