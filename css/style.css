@@ -165,3 +165,39 @@ body {
 .footer-banner a:hover {
     text-decoration: underline; /* ホバー時に下線を表示 */
 }
+@media screen and (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* 1列のグリッドに変更 */
+    }
+
+    .image-item img {
+        width: 90%; /* 画像の幅を増やす */
+    }
+
+    h1, h2, h4 {
+        font-size: 1.5rem; /* 見出しのフォントサイズを小さくする */
+    }
+
+    .toc ul li a {
+        font-size: 1.2rem; /* 目次のフォントサイズを調整 */
+    }
+}
+
+/* スマートフォン向けのスタイル */
+@media screen and (max-width: 480px) {
+    .image-item img {
+        width: 100%; /* 画像の幅をさらに増やす */
+    }
+
+    h1, h2, h4 {
+        font-size: 1.2rem; /* 見出しのフォントサイズをさらに小さくする */
+    }
+
+    .toc ul li a {
+        font-size: 1rem; /* 目次のフォントサイズをさらに調整 */
+    }
+
+    .footer-banner {
+        font-size: 0.8rem; /* フッターバナーのフォントサイズを調整 */
+    }
+}
