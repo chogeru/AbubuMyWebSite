@@ -149,3 +149,19 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #c1c1c1; /* 薄い灰色の背景色 */
 }
+.footer-banner {
+    background-color: #000; /* 黒色の背景 */
+    color: #fff; /* 文字を白色に */
+    text-align: center; /* テキストを中央揃えに */
+    padding: 10px 0; /* 上下のパディング */
+    margin-top: 20px; /* 上部の余白 */
+}
+
+.footer-banner a {
+    color: #fff; /* リンクの色を白色に */
+    text-decoration: none; /* 下線を消す */
+}
+
+.footer-banner a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
