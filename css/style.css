@@ -194,7 +194,13 @@ body {
         line-height: 1.2; /* 行間を調整する */
         word-wrap: break-word; /* 必要に応じて単語の途中で改行する */
     }
-    
+    .main-title .title-break {
+        display: block; /* スマートフォンでは改行を表示 */
+    }
+
+    .main-title .school-name {
+        display: inline; /* スクール名は同じ行で表示 */
+    }
     .image-grid {
         grid-template-columns: 1fr; /* 1列レイアウトにする */
     }
@@ -230,5 +236,11 @@ body {
 
     p.description {
         font-size: 0.8rem; /* 説明文のフォントサイズを小さくする */
+    }
+}
+/* デスクトップ向けのスタイル */
+@media screen and (min-width: 481px) {
+    .main-title .title-break {
+        display: none; /* デスクトップでは改行を非表示 */
     }
 }
