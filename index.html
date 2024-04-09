@@ -160,37 +160,8 @@
             });
         });
     </script>
-  <script>
+ <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // テキストをランダムな文字列に初期化し、元のテキストを保存する
-        const initRandomizeText = (element) => {
-            const originalText = element.innerText; // 元のテキストを保存
-            element.setAttribute('data-original-text', originalText); // data属性に保存
-    
-            let randomText = '';
-            for(let i = 0; i < originalText.length; i++) {
-                randomText += String.fromCharCode(65 + Math.floor(Math.random() * 26));
-            }
-            element.innerText = randomText;
-        };
-    
-        // アニメーション後に元のテキストに戻す
-        const animateText = (element) => {
-            const originalText = element.getAttribute('data-original-text').split('');
-            let currentText = element.innerText.split('');
-    
-            originalText.forEach((char, index) => {
-                setTimeout(() => {
-                    currentText[index] = char;
-                    element.innerText = currentText.join('');
-                }, 30 * index);
-            });
-        };
-    
-        // 全ての対象要素に対して初期化
-        document.querySelectorAll('.animated-text').forEach(initRandomizeText);
-    
-        // Intersection Observer APIを設定
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -198,12 +169,26 @@
                 }
             });
         }, { threshold: 0.5 });
-    
-        // 対象要素の監視
+
+        const animateText = (element) => {
+            const originalText = element.getAttribute('data-original-text').split('');
+            let currentText = element.innerText.split('');
+
+            originalText.forEach((char, index) => {
+                setTimeout(() => {
+                    currentText[index] = char;
+                    element.innerText = currentText.join('');
+                }, 30 * index);
+            });
+        };
+
         document.querySelectorAll('.animated-text').forEach(element => {
+            const originalText = element.innerText;
+            element.setAttribute('data-original-text', originalText);
+            element.innerText = ''; // テキストをクリアしてランダムテキストを表示
             observer.observe(element);
         });
     });
-    </script>
+</script>
 </body>
 </html>
