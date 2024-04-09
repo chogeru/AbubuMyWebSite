@@ -15,7 +15,9 @@
     </video>
 
     <!-- メイン見出し -->
-    <h1 class="main-title">ポートフォリオ<br class="title-break"><span class="school-name">(専門学校穴吹デザインカレッジ(Abubu))</span></h1>
+    <h1 class="main-title animated-text">ポートフォリオ<br class="title-break">
+        <span class="school-name">(専門学校穴吹デザインカレッジ(Abubu))</span></h1>            
+
     <!-- 目次 -->
      <div class="toc-banner">
         <!-- 目次を横並びにするためのdivタグ -->
@@ -29,7 +31,7 @@
     </div>
 
     
-    <h2 id="games">ゲーム作品</h2>
+    <h2 id="games animated-text">ゲーム作品</h2>
 
     <!-- 画像と見出しのグリッド -->
     <div class="image-grid">
@@ -37,7 +39,7 @@
         <div class="image-item">
             <img src="image/FantasyConnectTitle.png" alt="画像1">
             <h3>FantasyConnect</h3>
-            <p class="description">FantasyConnectはUnityを使用し作成された3Dアクションゲームです！<br>
+            <p class="description animated-text">FantasyConnectはUnityを使用し作成された3Dアクションゲームです！<br>
                 デザイン展2024にて最優秀賞を授与しました<br>
                 <span class="development-period">開発期間2023年12月 - 2024年1月</span>            </p>
         </div>
@@ -45,7 +47,7 @@
         <div class="image-item">
             <img src="image/MonsterHuntersTitle.png" alt="画像2">
             <h3>Monster Hunters</h3>
-            <p class="description">このアクションゲームはMonobit Unity Networking 2.0を使用して作成を行い、
+            <p class="description animated-text">このアクションゲームはMonobit Unity Networking 2.0を使用して作成を行い、
                 商店街のゲームの出店イベントに参加し多くの人に遊んでもらいました。<br>
                 <span class="development-period"> 開発期間 2023年8月 - 2024年1月</span>
             </p>
@@ -80,7 +82,7 @@
 
         <div class="image-item full-width"> <!-- image-item と full-width のクラスを同時に指定 -->
             <h4 id="cluster">Cluster</h4>
-            <p class="description">"Cluster"にてアップロードした、
+            <p class="description animated-text">"Cluster"にてアップロードした、
                 ワールドになります。
             </p>
         </div>
@@ -89,21 +91,21 @@
             <a href="https://cluster.mu/w/2a873311-f00d-4f7d-8962-d87a9f3c874a" target="_blank">
                 <img src="image/Cluster (YUME).png" alt="画像5">
                 <h3>City of Dreams</h3>
-                <p class="description">https://cluster.mu/w/2a873311-f00d-4f7d-8962-d87a9f3c874a</p>
+                <p class="description animated-text">https://cluster.mu/w/2a873311-f00d-4f7d-8962-d87a9f3c874a</p>
             </a>
         </div>
         <div class="image-item">
             <a href="https://cluster.mu/w/409b4a43-9eb9-4250-959e-0c15fb14383c" target="_blank">
                 <img src="image/Cluster (TOKYO).png" alt="画像6">
                 <h3>Tokyo</h3>
-                <p class="description">https://cluster.mu/w/409b4a43-9eb9-4250-959e-0c15fb14383c</p>
+                <p class="description animated-text">https://cluster.mu/w/409b4a43-9eb9-4250-959e-0c15fb14383c</p>
             </a>
         </div>
         <div class="image-item">
             <a href="https://cluster.mu/w/72b6461e-17b8-476a-92f2-ad02938bba75" target="_blank">
                 <img src="image/Cluster (SAKURAMATI).png" alt="画像7">
                 <h3>桜咲く街</h3>
-                <p class="description">https://cluster.mu/w/72b6461e-17b8-476a-92f2-ad02938bba75</p>
+                <p class="description animated-text">https://cluster.mu/w/72b6461e-17b8-476a-92f2-ad02938bba75</p>
             </a>
         </div>
         <div class="image-item">
@@ -157,6 +159,51 @@
                 });
             });
         });
+    </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // テキストをランダムな文字列に初期化し、元のテキストを保存する
+        const initRandomizeText = (element) => {
+            const originalText = element.innerText; // 元のテキストを保存
+            element.setAttribute('data-original-text', originalText); // data属性に保存
+    
+            let randomText = '';
+            for(let i = 0; i < originalText.length; i++) {
+                randomText += String.fromCharCode(65 + Math.floor(Math.random() * 26));
+            }
+            element.innerText = randomText;
+        };
+    
+        // アニメーション後に元のテキストに戻す
+        const animateText = (element) => {
+            const originalText = element.getAttribute('data-original-text').split('');
+            let currentText = element.innerText.split('');
+    
+            originalText.forEach((char, index) => {
+                setTimeout(() => {
+                    currentText[index] = char;
+                    element.innerText = currentText.join('');
+                }, 30 * index);
+            });
+        };
+    
+        // 全ての対象要素に対して初期化
+        document.querySelectorAll('.animated-text').forEach(initRandomizeText);
+    
+        // Intersection Observer APIを設定
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateText(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+    
+        // 対象要素の監視
+        document.querySelectorAll('.animated-text').forEach(element => {
+            observer.observe(element);
+        });
+    });
     </script>
 </body>
 </html>
