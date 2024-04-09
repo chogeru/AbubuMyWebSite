@@ -194,6 +194,9 @@ body {
         line-height: 1.2; /* 行間を調整する */
         word-wrap: break-word; /* 必要に応じて単語の途中で改行する */
     }
+    .main-title {
+        font-size: 1.2rem; /* スマートフォンでのフォントサイズを小さくする */
+    }
     .main-title .title-break {
         display: block; /* スマートフォンでは改行を表示 */
     }
