@@ -195,7 +195,7 @@ body {
         word-wrap: break-word; /* 必要に応じて単語の途中で改行する */
     }
     .main-title {
-        font-size: 0.8rem; /* スマートフォンでのフォントサイズを小さくする */
+        font-size: 1.2rem; /* スマートフォンでのフォントサイズを小さくする */
     }
     .main-title .title-break {
         display: block; /* スマートフォンでは改行を表示 */
