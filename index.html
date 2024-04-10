@@ -37,20 +37,113 @@
     <div class="image-grid">
         <!-- 1行目 -->
         <div class="image-item">
-            <img src="image/FantasyConnectTitle.png" alt="画像1">
+            <img src="image/FantasyConnectTitle.png" alt="画像1"class="modal-image" data-modal="modalFantasyConnect">
             <h3>FantasyConnect</h3>
             <p class="description animated-text">FantasyConnectはUnityを使用し作成された3Dアクションゲームです！<br>
                 デザイン展2024にて最優秀賞を授与しました<br>
                 <span class="development-period">開発期間2023年12月 - 2024年1月</span>            </p>
         </div>
+         
+        <div id="modalFantasyConnect" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+        
+                <!-- スライダーのコンテナ -->
+                <div class="slider">
+                    <div class="slides">
+                        <!-- 各スライド -->
+                        <div class="slide">
+                            <img src="image/FantasyConnectTitle.png" alt="画像1">
+                        </div>
+                        <div class="slide">
+                            <img src="image/FantasyConnect (1).png" alt="画像2">
+                        </div>
+                        <div class="slide">
+                            <img src="image/FantasyConnect (2).png" alt="画像3">
+                        </div>
+                        <div class="slide">
+                            <img src="image/FantasyConnect (3).png" alt="画像4">
+                        </div>
+                        <div class="slide">
+                            <img src="image/FantasyConnect (4).png" alt="画像5">
+                        </div>
+                    </div>
+        
+                    <!-- コントロールボタン -->
+                    <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+                    <a class="next" onclick="moveSlide(1)">&#10095;</a>
+                </div>
+        
+                <p>ファンタジーな世界観のアクションゲームを作りたいと思い作成した作品になります。<br>
+                    今作ではプレイヤーが世界観を楽しめるように制作しており、一部NPCと会話できるようにしたり、<br>
+                    ボス戦時にUnityの機能のタイムラインを使用した演出などを作成したりしております。<br>
+                    また、プレイヤーは複数の武器を装備したり、動物に乗って移動を行うことが出来、<br>
+                    戦闘や探索を楽しめるようにしており、戦闘面でもSEやエフェクト、ヒットストップなどを導入しているため、<br>
+                    敵を撃破した際の、爽快感も味わえるようにしております。<br>
+                    今作ではSEやエフェクトなどオブジェクトプールで実装しており、これによりInstantiateやDestroyの回数を減らし、<br>
+                    少しでもゲームの動作が軽くなるように工夫しており、セーブ&ロードもJsonファイルを使って実装しており、<br>
+                    アイテム管理用にインベントリの処理の実装を行ったりと、今まで実装出来てなかった機能を実装することが出来ました。<br>
+                    今作は様々なにプレイしてもらい意見やアドバイスをもらえた為、今後のより良い開発につなげれる作品になりました。<br>
+                    </p>
+            </div>
+        </div>
 
         <div class="image-item">
-            <img src="image/MonsterHuntersTitle.png" alt="画像2">
+            <img src="image/MonsterHuntersTitle.png" alt="画像2"class="modal-image" data-modal="modalMonsterHuntersTitle">
+
             <h3>Monster Hunters</h3>
             <p class="description animated-text">このアクションゲームはMonobit Unity Networking 2.0を使用して作成を行い、
                 商店街のゲームの出店イベントに参加し多くの人に遊んでもらいました。<br>
                 <span class="development-period"> 開発期間 2023年8月 - 2024年1月</span>
             </p>
+        </div>
+
+     <!-- MonsterHuntersのモーダル -->
+<div id="modalMonsterHuntersTitle" class="modal">
+    <!-- モーダルコンテンツ -->
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <!-- スライダー -->
+        <div class="slider">
+            <div class="slides">
+                <!-- スライド1 -->
+                <div class="slide">
+                    <img src="image/MonsterHunters (1).png" alt="画像1">
+                </div>
+                        <div class="slide">
+                            <img src="image/MonsterHunters (2).png" alt="画像2">
+                        </div>
+                        <div class="slide">
+                            <img src="image/MonsterHunters (3).png" alt="画像3">
+                        </div>
+                        <div class="slide">
+                            <img src="image/MonsterHunters (4).png" alt="画像4">
+                        </div>
+                        <div class="slide">
+                            <img src="image/MonsterHunters (5).png" alt="画像5">
+                        </div>
+                        <div class="slide">
+                            <img src="image/MonsterHunters (6).png" alt="画像6">
+                        </div>
+                    </div>
+        
+                    <!-- コントロールボタン -->
+                    <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+                    <a class="next" onclick="moveSlide(1)">&#10095;</a>
+                </div>
+        
+                <p>初めてMonobit Unity Networking 2.0を使用して作成したオンラインシューティングゲーム作品になります。<br>
+                    今作では「プレイヤーが自分に合ったキャラクターで戦える」をメインに考えており、<br>
+                    プレイヤーキャラは12種類のキャラを導入し、それぞれのキャラが違った戦い方が出来るようにしています。<br>
+                    また、敵も近接タイプや魔法攻撃を行ってくる敵などを作成し、少しでも戦闘を飽きにくくしております。<br>
+                    今作のゲームをオンライン化するにあったってプレイキャラが多く、ゲームのプレイ時間も約10分以上掛かるため<br>
+                    デバッグ作業に時間がかかってしまうという問題に悩まされました。<br>
+                    その為、開発が長引いてしまいましたが、諦めずに最後まで開発をやり遂げ、<br>
+                    最終的に香川県の商店街で行われたイベントに展示し、<br>
+                    多くの人に遊んでもらい楽しんでもらうことが出来ました。<br>
+                    今作の経験からオンラインゲーム作成の基礎を学ぶ経験を積むことが出来ました。<br>
+                    </p>
+            </div>
         </div>
 
         <!-- 新しい見出しを含むdiv -->
@@ -112,7 +205,7 @@
             <a href="https://cluster.mu/w/4bb17140-1752-409d-90b4-e9e75c7f1d7c" target="_blank">
                 <img src="image/Cluster (Horror).jpg" alt="画像8">
                 <h3>Horror</h3>
-                <p class="description">https://cluster.mu/w/4bb17140-1752-409d-90b4-e9e75c7f1d7c</p>
+                <p class="description animated-text">https://cluster.mu/w/4bb17140-1752-409d-90b4-e9e75c7f1d7c</p>
             </a>
         </div>
     </div>
@@ -190,5 +283,83 @@
         });
     });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var modalImages = document.querySelectorAll('.modal-image');
+    modalImages.forEach(function(img) {
+        img.onclick = function() {
+            var modal = document.getElementById(img.getAttribute('data-modal'));
+            modal.style.display = "block";
+        };
+    });
+
+    var closeButtons = document.querySelectorAll('.close-button');
+    closeButtons.forEach(function(btn) {
+        btn.onclick = function() {
+            var modal = btn.closest('.modal');
+            modal.style.display = "none";
+        };
+    });
+
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') {
+            event.target.style.display = "none";
+        }
+    };
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var modalImages = document.querySelectorAll('.modal-image');
+    modalImages.forEach(function(img) {
+        img.onclick = function() {
+            var modal = document.getElementById(img.getAttribute('data-modal'));
+            modal.style.display = "block";
+            showSlides(0, modal); // スライドショーを初期化
+        };
+    });
+
+    var closeButtons = document.querySelectorAll('.close-button');
+    closeButtons.forEach(function(btn) {
+        btn.onclick = function() {
+            var modal = btn.closest('.modal');
+            modal.style.display = "none";
+        };
+    });
+
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') {
+            event.target.style.display = "none";
+        }
+    };
+
+    document.querySelectorAll('.prev, .next').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var modal = button.closest('.modal');
+            var move = (button.className === 'prev') ? -1 : 1;
+            moveSlide(move, modal);
+        });
+    });
+});
+
+</script>
+<script>
+    function moveSlide(n, modal) {
+    var slides = modal.getElementsByClassName("slide");
+    var slideIndex = Number(modal.getAttribute('data-slide-index')) || 0;
+    slideIndex = (slideIndex + n + slides.length) % slides.length;
+    modal.setAttribute('data-slide-index', slideIndex.toString());
+    showSlides(slideIndex, modal);
+}
+
+function showSlides(n, modal) {
+    let slides = modal.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slides[n].style.display = "block"; 
+}
+    </script>
 </body>
 </html>
