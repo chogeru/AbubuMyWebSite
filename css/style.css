@@ -215,10 +215,9 @@ body {
         line-height: 1.2;
         word-wrap: break-word; /* 長い単語も折り返す */
         overflow-wrap: break-word; /* 長い単語を強制的に折り返す */
-        .fade-slide-text {
-            /* アニメーションのスケールを小さく調整 */
-            animation: fadeInScaleSmall 1s ease-in-out;
-        }
+
+        animation: fadeInScaleSmall 1s ease-in-out;
+
     }
 
     .fade-slide-text.creative-world {
