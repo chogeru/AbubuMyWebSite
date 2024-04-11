@@ -209,6 +209,16 @@ body {
     .main-title .school-name {
         display: inline; /* スクール名は同じ行で表示 */
     }
+    .fade-slide-text {
+        font-size: 20px; /* フォントサイズを小さくする */
+        padding: 10px; /* パディングを調整する */
+        line-height: 1.2; /* 行間を調整する */
+        box-sizing: border-box; /* パディングを含むサイズ計算に変更 */
+    }
+
+    .fade-slide-text.creative-world {
+        font-size: 20px; /* creative-worldクラスも同様に調整 */
+    }
     .image-grid {
         grid-template-columns: 1fr; /* 1列レイアウトにする */
     }
