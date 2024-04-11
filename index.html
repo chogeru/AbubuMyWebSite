@@ -17,8 +17,12 @@
     <!-- メイン見出し -->
     <h1 class="main-title animated-text">ポートフォリオ<br class="title-break">
         <span class="school-name">(専門学校穴吹デザインカレッジ(Abubu))</span></h1>            
-
-    <!-- 目次 -->
+        <div class="fade-slide-text-container">
+            <div class="fade-slide-text">作品に命を吹き込む</div>
+            <div class="fade-slide-text creative-world">発想を楽しむ、クリエイティブな世界</div>
+        </div>
+        
+        <!-- 目次 -->
      <div class="toc-banner">
         <!-- 目次を横並びにするためのdivタグ -->
         <div class="toc">
@@ -30,7 +34,6 @@
         </div>
     </div>
 
-    
     <h2 id="games animated-text">ゲーム作品</h2>
 
     <!-- 画像と見出しのグリッド -->
@@ -361,5 +364,31 @@ function showSlides(n, modal) {
     slides[n].style.display = "block"; 
 }
     </script>
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+    const fadeSlideTextElement = document.querySelector('.fade-slide-text');
+    const text = fadeSlideTextElement.textContent;
+    fadeSlideTextElement.textContent = '';
+
+    text.split('').forEach(char => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        span.style.opacity = '0';
+        span.style.transition = 'background-color 0.5s';
+        fadeSlideTextElement.appendChild(span);
+    });
+
+    let delay = 0;
+    fadeSlideTextElement.querySelectorAll('span').forEach((span, index) => {
+        setTimeout(() => {
+            span.style.opacity = '1';
+            setTimeout(() => {
+                span.style.backgroundColor = 'black';
+            }, (text.length - index) * 100);
+        }, delay);
+        delay += 100;
+    });
+});
+</script>
 </body>
 </html>
