@@ -222,19 +222,12 @@ body {
         display: inline; /* スクール名は同じ行で表示 */
     }
     .fade-slide-text {
-        font-size: 16px; /* フォントサイズをさらに小さくする */
-        padding: 5px; /* パディングを減らす */
-        line-height: 1.2;
-        word-wrap: break-word; /* 長い単語も折り返す */
-        overflow-wrap: break-word; /* 長い単語を強制的に折り返す */
-
-        animation: fadeInScaleSmall 1s ease-in-out;
-
+        font-size: 16px; /* フォントサイズを適切に小さく調整 */
+        padding: 10px 5px; /* パディングを調整してコンテンツが収まるようにする */
     }
-
     .fade-slide-text.creative-world {
-        font-size: 16px;
-        padding: 5px;
+        font-size: 16px; /* クリエイティブな世界用テキストのフォントサイズ調整 */
+        padding: 10px 5px; /* 同じくパディング調整 */
     }
     .image-grid {
         grid-template-columns: 1fr; /* 1列レイアウトにする */
