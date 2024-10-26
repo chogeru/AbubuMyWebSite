@@ -8,11 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <!-- 動画のセクション -->
-    <video controls autoplay>
+    
+ <!-- 動画のセクション -->
+<div class="video-slider">
+    <a class="prev" onclick="changeVideo(-1)">&#10094;</a>
+    <video id="videoPlayer" controls autoplay>
         <source src="video/FantasyConnectMove.mp4" type="video/mp4">
-        お使いのブラウザは動画タグをサポートしていません。お使いのブラウザは動画タグをサポートしていません。
+        お使いのブラウザは動画タグをサポートしていません。(_;д;)
     </video>
+    <a class="next" onclick="changeVideo(1)">&#10095;</a>
+</div>
 
     <!-- メイン見出し -->
     <h1 class="main-title animated-text">ポートフォリオ<br class="title-break">
@@ -24,7 +29,6 @@
         
         <!-- 目次 -->
      <div class="toc-banner">
-        <!-- 目次を横並びにするためのdivタグ -->
         <div class="toc">
             <ul>
                 <li><a href="#games">ゲーム作品</a></li>
@@ -39,7 +43,6 @@
 
     <!-- 画像と見出しのグリッド -->
     <div class="image-grid">
-        <!-- 1行目 -->
         <div class="image-item">
             <img src="image/FantasyConnectTitle.png" alt="画像1"class="modal-image" data-modal="modalFantasyConnect">
             <h3>FantasyConnect</h3>
@@ -79,7 +82,7 @@
                         </div>
                     </div>
         
-                    <!-- コントロールボタン -->
+                    <!-- ボタン -->
                     <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
                     <a class="next" onclick="moveSlide(1)">&#10095;</a>
                 </div>
@@ -114,7 +117,7 @@
                 </div>
         </div>
 
-     <!-- MonsterHuntersのモーダル -->
+    <!-- MonsterHunters -->
 <div id="modalMonsterHuntersTitle" class="modal">
     <!-- モーダルコンテンツ -->
     <div class="modal-content">
@@ -122,7 +125,7 @@
         <!-- スライダー -->
         <div class="slider">
             <div class="slides">
-                <!-- スライド1 -->
+                <!-- スライド -->
                 <div class="slide">
                     <img src="image/MonsterHunters (1).png" alt="画像1">
                 </div>
@@ -143,7 +146,7 @@
                         </div>
                     </div>
         
-                    <!-- コントロールボタン -->
+                    <!-- ボタン -->
                     <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
                     <a class="next" onclick="moveSlide(1)">&#10095;</a>
                 </div>
@@ -176,18 +179,17 @@
             </div>
         </div>
         
-        <!-- 必笑～笑いのツボ職人～のモーダル -->
+        <!-- 必笑～笑いのツボ職人～ -->
         <div id="必笑～笑いのツボ職人～" class="modal">
             <div class="modal-content">
                 <span class="close-button">&times;</span>
                 <!-- スライダー -->
                 <div class="slider">
                     <div class="slides">
-                        <!-- スライド1 -->
+                        <!-- スライド -->
                         <div class="slide">
                             <img src="image/必笑～笑いのツボ職人～  (5).webp" alt="画像1">
                         </div>
-                        <!-- スライド2 -->
                         <div class="slide">
                             <img src="image/必笑～笑いのツボ職人～  (4).webp" alt="画像2">
                         </div>
@@ -204,7 +206,7 @@
                             <img src="image/必笑～笑いのツボ職人～  (6).webp" alt="画像6">
                         </div>1
                     </div>
-                    <!-- コントロールボタン -->
+                    <!-- ボタン -->
                     <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
                     <a class="next" onclick="moveSlide(1)">&#10095;</a>
                 </div>
@@ -220,6 +222,7 @@
             </div>
         </div>
 
+        <!-- さんぶたレーシング -->
         <div class="image-item">
             <img src="image/さんぶたレーシング (3).png" alt="画像" class="modal-image" data-modal="さんぶたレーシング">
             <h3>さんぶたレーシング</h3>
@@ -235,18 +238,16 @@
             </div>
         </div>
         
-        <!-- さんぶたレーシング～のモーダル -->
         <div id="さんぶたレーシング" class="modal">
             <div class="modal-content">
                 <span class="close-button">&times;</span>
                 <!-- スライダー -->
                 <div class="slider">
                     <div class="slides">
-                        <!-- スライド1 -->
+                        <!-- スライド -->
                         <div class="slide">
                             <img src="image/さんぶたレーシング (3).png" alt="画像1">
                         </div>
-                        <!-- スライド2 -->
                         <div class="slide">
                             <img src="image/さんぶたレーシング (4).png" alt="画像2">
                         </div>
@@ -263,7 +264,7 @@
                             <img src="image/さんぶたレーシング (2).png" alt="画像6">
                         </div>
                     </div>
-                    <!-- コントロールボタン -->
+                    <!-- ボタン -->
                     <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
                     <a class="next" onclick="moveSlide(1)">&#10095;</a>
                 </div>
@@ -294,7 +295,7 @@
             </div>
         </div>
         
-        <!-- 居残授業～のモーダル -->
+        <!-- 居残授業～ -->
         <div id="居残授業" class="modal">
             <div class="modal-content">
                 <span class="close-button">&times;</span>
@@ -305,7 +306,6 @@
                         <div class="slide">
                             <img src="image/居残授業 (2).png" alt="画像1">
                         </div>
-                        <!-- スライド2 -->
                         <div class="slide">
                             <img src="image/居残授業 (1).png" alt="画像2">
                         </div>
@@ -325,7 +325,7 @@
                             <img src="image/居残授業 (7).png" alt="画像7">
                         </div>
                     </div>
-                    <!-- コントロールボタン -->
+                    <!-- ボタン -->
                     <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
                     <a class="next" onclick="moveSlide(1)">&#10095;</a>
                 </div>
@@ -336,8 +336,76 @@
                 </p>
             </div>
         </div>
-        
-        <!-- メタバースプラットフォーム開発のセクション -->
+        <div class="image-item">
+    <img src="image/ファンタジーコネクト2 (2).png" alt="画像" class="modal-image" data-modal="modalFantasyConnect2">
+    <h3>ファンタジーコネクト</h3>
+    <p class="description animated-text">2024年冬に販売予定のアクションゲーム！<br>
+          今までとは変わった世界をお楽しみください！<br>
+        開発期間: 2024年7月 - 2024年12月</p>
+    <div class="video-item">
+        <video controls>
+            <source src="video/ファンタジーコネクトTL.mp4" type="video/mp4">
+            お使いのブラウザは動画タグをサポートしていません。
+        </video>
+    </div>
+</div>
+
+<!-- New Game Modal -->
+<div id="modalFantasyConnect2" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <!-- スライダー -->
+        <div class="slider">
+            <div class="slides">
+                <!-- スライド -->
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (1).png" alt="画像1">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (2).png" alt="画像2">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (3).png" alt="画像3">
+                </div>
+                 <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (4).png" alt="画像4">
+                </div>
+                 <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (5).png" alt="画像5">
+                </div>
+                 <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (6).png" alt="画像6">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (7).png" alt="画像7">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (8).png" alt="画像8">
+                </div>
+                 <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (9).png" alt="画像49">
+                </div>
+                 <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (10).png" alt="画像10">
+                </div>
+                     <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (11).png" alt="画像11">
+                </div>
+            </div>
+
+            <!-- ボタン -->
+            <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+            <a class="next" onclick="moveSlide(1)">&#10095;</a>
+        </div>
+        <p>
+            このゲームは、新しいオンラインアクションゲームで、複数のキャラクターを使って異なるプレイスタイルを楽しむことができます。
+            ゲームの開発は約5ヶ月に渡って行われ、多くのフィードバックを元にバランス調整を行いました。
+        </p>
+    </div>
+</div>
+
+
+        <!-- メタバースプラットフォーム開発 -->
 <div id="metaverse-platform" class="full-width">
     <h2 style="margin-bottom: 30px;">メタバースプラットフォーム開発</h2>
 
@@ -347,10 +415,9 @@
     </video>
     <div class="description">
         <p>現在プログラマー1名と3Dデザイナー1名の計2名で開発を行っている<br>
-          善通寺市をテーマにした、メタバース空間になります。</p>
+        善通寺市をテーマにした、メタバース空間になります。</p>
     </div>
     <div class="image-grid">
-        <!-- 1行目 -->
         <div class="image-item">
             <img src="image/善通寺メタバース (4).png" alt="画像1"class="modal-image" data-modal="metaverse">
             <h3>善通寺メタバース</h3>
@@ -364,12 +431,12 @@
                     </video>
                 </div>
         </div>
-         
-        
+    
+        <!-- 善通寺メタバース -->
         <div id="metaverse" class="modal">
             <div class="modal-content">
                 <span class="close-button">&times;</span>        
-                <!-- スライダーのコンテナ -->
+                <!-- スライダー -->
                 <div class="slider">
                     <div class="slides">
                         <!-- 各スライド -->
@@ -393,7 +460,7 @@
                         </div>
                     </div>
         
-                    <!-- コントロールボタン -->
+                    <!-- ボタン -->
                     <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
                     <a class="next" onclick="moveSlide(1)">&#10095;</a>
                 </div>
@@ -405,7 +472,7 @@
             </div>
         </div>
 
-        <!-- 新しい見出しを含むdiv -->
+        <!-- VRChatのセクション -->
         <div class="full-width">
             <h2 id="vrchat">メタバースワールドアップロード</h2>
         </div>
@@ -424,7 +491,6 @@
             <p class="description animated-text">VRChatにて初めてアップロードしたワールドになります<br>
 
         </div>
-        <!-- 2行目 -->
         <div class="image-item">
             <a href="https://vrch.at/zc064nm6" target="_blank">
                 <img src="image/VRChatImage.png" alt="画像3">
@@ -436,15 +502,13 @@
         </a>
         </div>
 
-  
-
-        <div class="image-item full-width"> <!-- image-item と full-width のクラスを同時に指定 -->
+        <!-- Clusterのセクション -->
+        <div class="image-item full-width"> 
             <h4 id="cluster">Cluster</h4>
             <p class="description animated-text">"Cluster"にてアップロードした、
                 ワールドになります。
             </p>
         </div>
-        <!-- 3行目 -->
         <div class="image-item">
             <a href="https://cluster.mu/w/2a873311-f00d-4f7d-8962-d87a9f3c874a" target="_blank">
                 <img src="image/Cluster (YUME).png" alt="画像5">
@@ -474,9 +538,12 @@
             </a>
         </div>
     </div>
+    <!----ツイッター-->
     <footer class="footer-banner">
         <p>Twitter: <a href="https://twitter.com/Abu831831" target="_blank">@Abubu(あぶぶ)</a></p>
     </footer>
+
+    <!-- 画像のアニメーションと表示制御 -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const observer = new IntersectionObserver((entries) => {
@@ -488,19 +555,20 @@
                     }
                 });
             }, {
-                threshold: 0.5 // 50%以上が見えたらトリガー
+                //50%以上が見えたらトリガー
+                threshold: 0.5 
             });
         
-            // 監視対象の画像要素を選択
+            //画像要素を選択
             const images = document.querySelectorAll(".image-item img");
             images.forEach(img => {
                 observer.observe(img);
             });
         });
     </script>
-       <script>
+    <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // 目次のリンクをクリックした時のスクロール処理
+            //目次のリンクをクリックした時のスクロール処理
             document.querySelectorAll('ul li a').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -518,7 +586,8 @@
             });
         });
     </script>
- <script>
+    <!-- テキストアニメーション -->
+<script>
     document.addEventListener("DOMContentLoaded", function() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -543,7 +612,8 @@
         document.querySelectorAll('.animated-text').forEach(element => {
             const originalText = element.innerText;
             element.setAttribute('data-original-text', originalText);
-            element.innerText = ''; // テキストをクリアしてランダムテキストを表示
+            //テキストをクリアしてランダムテキストを表示
+            element.innerText = ''; 
             observer.observe(element);
         });
     });
@@ -627,7 +697,7 @@ function showSlides(n, modal) {
 }
     </script>
 <script>
-   document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
     const fadeSlideTextElement = document.querySelector('.fade-slide-text');
     const text = fadeSlideTextElement.textContent;
     fadeSlideTextElement.textContent = '';
@@ -650,6 +720,58 @@ function showSlides(n, modal) {
         }, delay);
         delay += 100;
     });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const videoSources = [
+        "video/ファンタジーコネクトTL.mp4",
+        "video/FantasyConnectMove.mp4",
+    ];
+
+    let currentIndex = 0;
+    const videoPlayer = document.getElementById('videoPlayer');
+
+    // ビデオを切り替える関数をグローバルに定義
+    window.changeVideo = function (n) {
+        currentIndex += n;
+        if (currentIndex < 0) {
+            currentIndex = videoSources.length - 1;
+        } else if (currentIndex >= videoSources.length) {
+            currentIndex = 0;
+        }
+
+        videoPlayer.src = videoSources[currentIndex];
+        videoPlayer.load();  // 新しい動画を読み込み
+        videoPlayer.play();  // 自動再生
+    };
+
+    // 初期動画の設定
+    videoPlayer.src = videoSources[currentIndex];
+    videoPlayer.load();
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const videoElement = document.getElementById('videoPlayer');
+
+    // IntersectionObserverのオプション
+    const options = {
+        threshold: 0.5 // 動画が50%以上見えているかどうかを基準にする
+    };
+
+    // IntersectionObserverを作成
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 動画が見えている場合再生する
+                videoElement.play();
+            } else {
+                // 動画が見えていない場合一時停止する
+                videoElement.pause();
+            }
+        });
+    }, options);
+
+    // 動画要素を監視する
+    observer.observe(videoElement);
 });
 </script>
 </body>

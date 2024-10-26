@@ -1,27 +1,43 @@
 @charset "utf-8";
-p{
+@import url('https://fonts.googleapis.com/css2?family=Tiny+5&display=swap');
+
+p {
     color: #000000;
 }
+/* フェードインのアニメーション */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
+/* ズームインのアニメーション */
 @keyframes zoomIn {
-    from { transform: scale(0.5); }
-    to { transform: scale(1); }
-}
-/* 画像と動画のアスペクト比を16:9に設定 */
-.image-item img, .video-item video {
-    width: 100%; /* 親要素に基づいた幅 */
-    height: auto; /* 高さは自動調整 */
-    aspect-ratio: 16 / 9; /* アスペクト比を16:9に設定 */
+    from {
+        transform: scale(0.5);
+    }
+
+    to {
+        transform: scale(1);
+    }
 }
 
-/* 特定の動画にはアスペクト比のスタイルを適用しない */
-.video-item video.no-aspect-ratio {
-    aspect-ratio: auto; /* アスペクト比の制御を解除 */
+.image-item img, .video-item video {
+    width: 100%;
+    /* 高さは自動調整 */
+    height: auto;
+    /* アスペクト比を16:9に設定 */
+    aspect-ratio: 16 / 9;
 }
+
+
+    .video-item video.no-aspect-ratio {
+        aspect-ratio: auto;
+    }
 
 /* 初期状態では透明度を0に設定 */
 .image-item img {
@@ -29,12 +45,12 @@ p{
     transition: opacity 1s ease-in-out;
 }
 
-/* 視界に入ったときのスタイル */
-.image-item img.visible {
-    opacity: 1;
-}
+    /* 視界に入ったときのスタイル */
+    .image-item img.visible {
+        opacity: 1;
+    }
 /* 見出しのアニメーション適用 */
-h1, h2, h4{
+h1, h2, h4 {
     animation: fadeIn 1s ease-in-out, zoomIn 1s ease-in-out;
 }
 
@@ -44,12 +60,22 @@ h1, h2, h4{
     transition: transform 0.1s ease-in-out;
 }
 
-/* フォントの適用例（Google Fontsから選択） */
+/* フォントの適用例（GoogleFontから選択） */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'sans-serif', sans-serif;
+    background: linear-gradient( 90deg, #ff3cac 0%, /* 開始色 */
+    #ff559c 20%, #784ba0 40%, /* 中間色 */
+    #4b8ac5 60%, /* 中間色 */
+    #2b86c5 80%, /* 終了色 */
+    #ff3cac 100% /* 終了色（開始色と同じ）*/
+    );
+    height: 100vh;
+    background-size: cover;
+    margin: 0;
 }
+/* ビデオのスタイル */
 video {
     width: 100%;
     height: auto;
@@ -59,39 +85,64 @@ video {
 
 /* メイン見出しスタイル */
 h1 {
+    /* センターに */
     text-align: center;
-    font-weight: bold; /* テキストを太字にする */
+    /* テキストを太字に */
+    font-weight: bold;
     margin-bottom: 25px;
-    margin-top: 15px; /* 上部のスペース */
-    margin-bottom: 15px; /* 下部のスペース */
+    /* 上部のスペース */
+    margin-top: 15px;
+    /* 下部のスペース */
+    margin-bottom: 15px;
     font-size: 20px;
-
 }
 /*各見出しスタイル*/
 h2 {
-    background-color: orange;
+    background-color: black;
     color: white;
-    margin-top: 10%; /* 上部のスペース */
-    margin-bottom: 10px; /* 下部のスペースを30pxに設定 */
-    padding: 5px 0; /* 上下のパディングを保持 */
-    text-align: center; /* テキストを中央揃えに */
-    display: block; /* ブロックレベルの表示 */
-    margin: 0 auto; /* 上下マージンなし、左右マージンで自動調整 */
-    width: fit-content; /* テキストの内容に合わせて幅を調整 */
-    padding-left: 15%; /* 左パディングをテキスト幅の約2倍に */
-    padding-right: 15%; /* 右パディングをテキスト幅の約2倍に */
+    /* 上部のスペース */
+    margin-top: 10%;
+    /* 下部のスペースを設定 */
+    margin-bottom: 10px;
+    padding: 5px 0;
+    /* テキストを中央揃えに */
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    padding-left: 15%;
+    padding-right: 15%;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+h3 {
+    text-align: center; /* テキストを中央に揃える */
+    position: relative; /* 線を中央に揃えるためにrelativeを使用 */
+}
+
+    h3::after {
+        content: '';
+        display: block;
+        width: 250px; /* 線の幅を短く設定 */
+        height: 3px;
+        background-color: black; /* 黒い線を追加 */
+        margin: 10px auto 0; /* 上下のマージンを調整し、中央寄せ */
+    }
+
 
 /*プラットフォーム名*/
-h4
-{
-    text-align: center; /* テキストを中央揃えにする */
-    font-weight: bold; /* テキストを太字にする */
-    margin-top: 15px; /* 上部のスペース */
-    margin-bottom: 15px; /* 下部のスペース */
+h4 {
+    /* テキストを中央揃えにする */
+    text-align: center;
+    /* テキストを太字にする */
+    font-weight: bold;
+    /* 上部のスペース */
+    margin-top: 15px;
+    /* 下部のスペース */
+    margin-bottom: 15px;
+    /* フォントサイズ */
     font-size: 20px;
 }
+
 /* 画像グリッドスタイル */
 .image-grid {
     display: grid;
@@ -99,179 +150,221 @@ h4
     grid-gap: 20px;
 }
 
-/* 各画像アイテムのスタイル */
+
 .image-item {
     text-align: center;
-    margin-bottom: 30px; /* 追加：画像間のマージンを調整 */
-
+    margin-bottom: 30px;
 }
 
-.image-item img {
-    width: 70%;
-    height: auto;
-    border: 4.5px solid black; /* 黒い太めのボーダーを追加 */
-    box-sizing: border-box; /* ボーダーを含めたサイズ計算に変更 */
-    margin-top: 30px; /* 画像の上部に20pxのスペースを追加 */
-    margin-bottom: 5px; /* 画像の下部に20pxのスペースを追加 */
-}
+    .image-item img {
+        width: 70%;
+        height: auto;
+        /* 黒い太めのボーダーを追加 */
+        border: 4.5px solid black;
+        /* ボーダーを含めたサイズ計算に変更 */
+        box-sizing: border-box;
+        /* 画像の上部にスペースを追加 */
+        margin-top: 30px;
+        margin-bottom: 5px;
+    }
+
 .full-width {
-    grid-column: 1 / -1; /* グリッドの全幅を使用 */
-    text-align: center; /* 中央揃え */
+    grid-column: 1 / -1;
+    text-align: center;
 }
+
 /* テキストのスタイル */
 p.description {
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: bold;
     line-height: 1.6;
     margin-top: 10px;
-    color: #333333;
-    word-wrap: break-word; /* 長い単語でも改行する */
-    max-width: 500px; /* テキストの最大幅を設定 */
-    margin-left: auto;  
+    color: white;
+    word-wrap: break-word;
+    /* テキストの最大幅を設定 */
+    max-width: 500px;
+    margin-left: auto;
     margin-right: auto;
+    /* 黒のアウトラインを追加 */
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
+
 @media screen and (max-width: 600px) {
     p.description {
-        max-width: 100%; /* スマートフォンなどの小さい画面では幅を100%に */
+        /* スマートフォンなどの小さい画面では幅を100%に */
+        max-width: 100%;
     }
 }
+
 /* 目次のスタイル */
 .toc ul {
     list-style: none;
     display: flex;
-    justify-content: space-around; /* リスト項目を均等に配置 */
+    justify-content: space-around;
     padding: 0;
 }
 
-.toc ul li {
-    display: inline;
-}
+    .toc ul li {
+        display: inline;
+    }
 
 /* 灰色バナーのスタイル */
 .toc-banner {
-    background-color: orange;
-    justify-content: center; /* 中央揃え */
+    background-color: black;
+    justify-content: center;
     padding: 10px 0;
-    margin-top: 50px; /* 画像の上部に20pxのスペースを追加 */
-    margin-bottom: 50px; /* 画像の下部に20pxのスペースを追加 */
+    /* 画像の上部にスペースを追加 */
+    margin-top: 50px;
+    /* 画像の下部にスペースを追加 */
+    margin-bottom: 50px;
 }
+
 .toc ul li a {
-    font-size: 30px; 
-    font-weight: bold; /* テキストを太字にする */
-    color: white;
+    font-size: 30px;
+    /* テキストを太字にする */
+    font-weight: bold;
+    color: whitesmoke;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}.development-period {
-    border-bottom: 1px solid #000; /* 黒色の1pxの下線 */
-    padding-bottom: 2px; /* 下線とテキストの間隔 */
 }
-body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #c1c1c1; /* 薄い灰色の背景色 */
-    -webkit-text-size-adjust: 100%; /* iOSのSafariでのフォントサイズの変更を防ぐ */
+
+.development-period {
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
 }
+
+
+
 .footer-banner {
-    background-color: #000; /* 黒色の背景 */
-    color: #fff; /* 文字を白色に */
-    text-align: center; /* テキストを中央揃えに */
-    padding: 10px 0; /* 上下のパディング */
-    margin-top: 20px; /* 上部の余白 */
+    /* 黒色の背景 */
+    background-color: #000;
+    /* 文字を白色に */
+    color: #fff;
+    /* テキストを中央揃えに */
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
 }
 
-.footer-banner a {
-    color: #fff; /* リンクの色を白色に */
-    text-decoration: none; /* 下線を消す */
-}
+    .footer-banner a {
+        /* リンクの色を白色に */
+        color: #fff;
+        text-decoration: none;
+    }
 
-.footer-banner a:hover {
-    text-decoration: underline; /* ホバー時に下線を表示 */
-}
+        .footer-banner a:hover {
+            text-decoration: underline;
+        }
+
 @media screen and (max-width: 768px) {
     .image-grid {
-        grid-template-columns: 1fr; /* 1列のグリッドに変更 */
+        grid-template-columns: 1fr;
     }
 
     .image-item img {
-        width: 90%; /* 画像の幅を増やす */
+        width: 90%;
     }
 
     h1, h2, h4 {
-        font-size: 1.5rem; /* 見出しのフォントサイズを小さくする */
+        /* 見出しのフォントサイズを小さくする */
+        font-size: 1.5rem;
     }
 
     .toc ul li a {
-        font-size: 1.2rem; /* 目次のフォントサイズを調整 */
+        /* 目次のフォントサイズを調整 */
+        font-size: 1.2rem;
     }
 }
 
 /* スマートフォン向けのスタイル */
 @media screen and (max-width: 480px) {
     h1, .full-width h2 {
-        font-size: 1.2rem; /* フォントサイズを小さくする */
-        padding-left: 10px; /* 左側に少しパディングを加える */
-        padding-right: 10px; /* 右側に少しパディングを加える */
-        line-height: 1.2; /* 行間を調整する */
-        word-wrap: break-word; /* 必要に応じて単語の途中で改行する */
-    }
-    .main-title {
-        font-size: 1.2rem; /* スマートフォンでのフォントサイズを小さくする */
-    }
-    .main-title .title-break {
-        display: block; /* スマートフォンでは改行を表示 */
+        /* フォントサイズを小さくする */
+        font-size: 1.2rem;
+        padding-left: 10px;
+        padding-right: 10px;
+        line-height: 1.2;
+        word-wrap: break-word;
     }
 
-    .main-title .school-name {
-        display: inline; /* スクール名は同じ行で表示 */
+    .main-title {
+        /* フォントサイズを小さくする */
+        font-size: 1.2rem;
     }
+
+        .main-title .title-break {
+            display: block;
+        }
+
+        .main-title .school-name {
+            display: inline;
+        }
+
     .fade-slide-text {
-        font-size: 16px; /* フォントサイズを適切に小さく調整 */
-        padding: 10px 5px; /* パディングを調整してコンテンツが収まるようにする */
+        /* フォントサイズを適切に小さく調整 */
+        font-size: 16px;
+        padding: 10px 5px;
     }
-    .fade-slide-text.creative-world {
-        font-size: 16px; /* クリエイティブな世界用テキストのフォントサイズ調整 */
-        padding: 10px 5px; /* 同じくパディング調整 */
-    }
+        /* 名前は気にしないで */
+        .fade-slide-text.creative-world {
+            font-size: 16px;
+            padding: 10px 5px;
+        }
+
     .image-grid {
-        grid-template-columns: 1fr; /* 1列レイアウトにする */
+        grid-template-columns: 1fr;
     }
 
     .image-item img {
-        width: 100%; /* 画像を幅いっぱいに表示 */
-        margin-top: 15px; /* 画像の上の余白を調整 */
-        margin-bottom: 15px; /* 画像の下の余白を調整 */
+        /* 画像を幅いっぱいに表示 */
+        width: 100%;
+        /* 画像の上の余白を調整 */
+        margin-top: 15px;
+        /* 画像の下の余白を調整 */
+        margin-bottom: 15px;
     }
 
     h1, h2, h4 {
-        font-size: 1.2rem; /* 見出しのフォントサイズを小さくする */
-        margin-top: 10px; /* 見出しの上の余白を調整 */
-        margin-bottom: 10px; /* 見出しの下の余白を調整 */
+        /* 見出しのフォントサイズを小さくする */
+        font-size: 1.2rem;
+        /* 見出しの上の余白を調整 */
+        margin-top: 10px;
+        /* 見出しの下の余白を調整 */
+        margin-bottom: 10px;
     }
 
     .toc ul {
-        flex-direction: column; /* 目次リストを縦に並べる */
-        align-items: center; /* 中央揃えにする */
+        flex-direction: column;
+        /* 中央揃えにする */
+        align-items: center;
     }
 
-    .toc ul li {
-        margin-bottom: 10px; /* リスト項目間の余白を設定 */
-    }
+        .toc ul li {
+            margin-bottom: 10px;
+        }
 
-    .toc ul li a {
-        font-size: 1rem; /* 目次のフォントサイズを小さくする */
-    }
+            .toc ul li a {
+                /* 目次のフォントサイズを小さくする */
+                font-size: 1rem;
+            }
 
     .footer-banner {
-        font-size: 0.8rem; /* フッターバナーのフォントサイズを小さくする */
+        font-size: 0.8rem;
     }
 
     p.description {
-        font-size: 0.8rem; /* 説明文のフォントサイズを小さくする */
+        /* 説明文のフォントサイズを小さくする */
+        font-size: 0.8rem;
     }
 }
+
 /* デスクトップ向けのスタイル */
 @media screen and (min-width: 481px) {
     .main-title .title-break {
-        display: none; /* デスクトップでは改行を非表示 */
+        display: none;
     }
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -288,65 +381,74 @@ body {
 
 .modal-content {
     position: relative;
-    background-color: #c1c1c1; 
+    background: linear-gradient(90deg, #c8327b, #b74485, #6a3f8e, #416b9e, #2d6d9b, #c8327b); /* 少し明るめの暗めグラデーション */
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 80%; /* モーダルの最大幅を大きくする */
-    margin: 5% auto; /* 上下のマージンを設定 */
-    padding: 20px; /* パディングを設定 */
+    max-width: 80%;
+    margin: 5% auto;
+    padding: 20px;
 }
-.modal-content p {
-    font-weight: bold; /* テキストを太字にする */
-    font-size: 18px; /* フォントサイズを大きくする */
-    color: #333333; /* テキストの色を濃い灰色にする */
-    line-height: 1.6; /* 行間を広げる */
-}
-/* モーダルウィンドウ内の画像のスタイル */
-.modal-content img {
-    max-width: 100%; /* 画像の最大幅をモーダルの幅に合わせる */
-    height: auto; /* 高さは自動調整 */
-    display: block; /* ブロック要素として表示 */
-    margin: 0 auto; /* 左右中央揃え */
-    border: 4.5px solid black; /* 黒い太めのボーダーを追加 */
-    box-sizing: border-box; /* ボーダーを含めたサイズ計算に変更 */
-}
+
+    .modal-content p {
+        font-weight: bold;
+        font-size: 15px;
+        color: #ffffff; /* テキストを白に */
+        line-height: 1.6;
+        text-shadow: -1.3px -1.3px 0 #000, 1.3px -1.3px 0 #000, -1.3px 1.3px 0 #000, 1.3px 1.3px 0 #000;
+    }
+
+
+    /*
+https://www.geo-code.co.jp/webdev/mag/modal/
+*/
+
+    /* モーダルウィンドウ内の画像のスタイル */
+    .modal-content img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border: 4.5px solid black;
+        box-sizing: border-box;
+    }
 
 /* スライドのスタイルを修正 */
 .slide img {
-    aspect-ratio: 16 / 9; /* アスペクト比を16:9に設定 */
-    max-width: 100%; /* 最大幅を100%に設定して親要素にフィットさせる */
-    height: auto; /* 高さは自動で調整 */
-    display: block; /* ブロック要素として表示 */
-    margin: auto; /* 画像を中央に配置 */
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
 }
 
 .close-button {
     position: absolute;
-    top: 10px; /* 上から10pxの位置 */
-    right: 10px; /* 右から10pxの位置 */
+    top: 10px;
+    right: 10px;
     color: #ffffff;
-    font-size: 28px; /* フォントサイズを適切に調整 */
+    font-size: 28px;
     font-weight: bold;
-    border: 2px solid black; /* 黒色のアウトラインを追加 */
-    border-radius: 50%; /* ボタンを円形にする */
-    padding: 0; /* パディングを調整 */
-    width: 40px; /* ボタンの幅を設定 */
-    height: 40px; /* ボタンの高さを設定 */
-    line-height: 40px; /* テキスト（×）を中央に配置 */
-    text-align: center; /* テキストを中央揃えにする */
-    display: inline-block; /* インラインブロック要素にする */
-    
+    border: 2px solid black;
+    /* ボタンを円形にする */
+    border-radius: 50%;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
 }
 
-.close-button:hover,
-.close-button:focus {
-    color: black;
-    background-color: white; /* ホバー時の背景色を白に */
-    text-decoration: none;
-    cursor: pointer;
-}
+    .close-button:hover,
+    .close-button:focus {
+        color: black;
+        background-color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
 .slider {
     position: relative;
     width: 100%;
@@ -389,69 +491,79 @@ body {
 }
 
 .prev {
-    left: 0; /* 左端に配置 */
+    left: 0;
     border-radius: 3px 0 0 3px;
 }
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+    }
+
 .centered-text {
     text-align: center;
 }
+
 @keyframes fadeSlideTextAnimation {
     from {
         opacity: 0;
         transform: translateX(100%) scale(0.5);
     }
+
     to {
         opacity: 1;
         transform: translateX(0) scale(1);
     }
 }
+
 @keyframes fadeInScaleSmall {
     from {
         opacity: 0;
-        transform: scale(0.8); /* スケール値を小さく設定 */
+        transform: scale(0.8);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
     }
 }
+
 .fade-slide-text {
-    font-size: 5rem; /* Adjust size as needed */
+    font-size: 5rem;
     animation: fadeSlideTextAnimation 3s ease forwards;
     white-space: nowrap;
-    overflow: hidden; 
-    font-weight: bold; /* テキストを太字にする */
+    overflow: hidden;
+    font-weight: bold;
     position: relative;
     display: inline-block;
     transition: opacity 3s ease, background-color 0.5s linear;
     color: white;
+}
 
-}
-.fade-slide-text span {
-    padding: 2px 4px; /* 上下に2px、左右に4pxの余白を追加 */
-    box-sizing: border-box; /* パディングを含めたサイズ計算に変更 */
-    display: inline-block; /* スパンをインラインブロック要素として表示 */
-    transition: background-color 0.5s linear;
-}
-.fade-slide-text::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: rgb(0, 0, 0);
-    z-index: -1;
-    transition: width 1s linear;
-}
-.fade-slide-text.creative-world {
-    font-size: 30px; 
-    background-color: black;
-    padding: 15px; 
-}
+    .fade-slide-text span {
+        padding: 2px 4px;
+        box-sizing: border-box;
+        display: inline-block;
+        transition: background-color 0.5s linear;
+    }
+
+    .fade-slide-text::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: rgb(0, 0, 0);
+        z-index: -1;
+        transition: width 1s linear;
+    }
+
+    .fade-slide-text.creative-world {
+        font-size: 30px;
+        background-color: black;
+        padding: 15px;
+    }
+
 .fade-slide-text-container {
     display: flex;
     flex-direction: column;
@@ -461,19 +573,20 @@ body {
 .video-item {
     text-align: center;
     margin-bottom: 30px;
-    padding: 4.5px; /* 境界線として機能するパディングを追加 */
-    background-color: black; /* パディング部分に黒色を設定 */
+    padding: 4.5px;
+    background-color: black;
 }
 
-.video-item video {
-    width: 100%; /* 画像と同じ幅 */
-    height: auto; /* 高さは自動調整 */
-    display: block; /* ブロックレベルの要素として表示 */
-    margin: auto; /* 自動マージンで中央揃え */
-    box-sizing: border-box;
-    margin-top: 30px;
-    margin-bottom: 5px;
-}
+    .video-item video {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+        box-sizing: border-box;
+        margin-top: 30px;
+        margin-bottom: 5px;
+    }
+
 @media screen and (max-width: 768px) {
     .video-item video {
         width: 90%;
@@ -485,8 +598,47 @@ body {
         width: 100%;
     }
 }
+
 .centered {
     display: flex;
     justify-content: center;
     width: 100%;
 }
+.video-slider {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+    .video-slider video {
+        width: 100%;
+        height: auto;
+    }
+
+    .video-slider .prev, .video-slider .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        user-select: none;
+        z-index: 1;
+    }
+
+    .video-slider .prev {
+        left: 0;
+    }
+
+    .video-slider .next {
+        right: 0;
+    }
+
+        .video-slider .prev:hover, .video-slider .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
