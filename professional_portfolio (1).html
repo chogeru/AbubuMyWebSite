@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abubu Portfolio - Game Developer & Metaverse Creator</title>
+    <meta name="description" content="専門学校穴吹デザインカレッジ（Abubu）のゲーム開発・メタバース制作ポートフォリオ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Modern Color Scheme */
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            
+            /* Dark theme colors */
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a2e;
+            --bg-tertiary: #16213e;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            
+            /* Text colors with better contrast */
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --text-accent: #38bdf8;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --gradient-dark: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --gradient-mesh: radial-gradient(at 40% 20%, hsla(280,100%,74%,0.3) 0px, transparent 50%),
+                             radial-gradient(at 80% 0%, hsla(189,100%,56%,0.3) 0px, transparent 50%),
+                             radial-gradient(at 0% 50%, hsla(355,100%,93%,0.2) 0px, transparent 50%);
+            
+            /* Glass effect */
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-blur: 20px;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.6);
+            --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.3);
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            
+            /* Border radius */
+            --radius-sm: 0.5rem;
+            --radius-md: 1rem;
+            --radius-lg: 1.5rem;
+            --radius-xl: 2rem;
+            --radius-full: 9999px;
+            
+            /* Transitions */
+            --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* Base styles */
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-mesh);
+            opacity: 0.5;
+            z-index: -2;
+            animation: meshAnimation 20s ease-in-out infinite;
+        }
+
+        @keyframes meshAnimation {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-20px, -20px) rotate(120deg); }
+            66% { transform: translate(20px, -10px) rotate(240deg); }
+        }
+
+        /* Particle background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--text-accent);
+            opacity: 0.3;
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) translateX(0);
+            }
+            to {
+                transform: translateY(-100px) translateX(100px);
+            }
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); }
+        h2 { font-size: clamp(2rem, 6vw, 3.5rem); }
+        h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Modern button styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            transition: var(--transition-base);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient-accent);
+            color: var(--text-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: var(--spacing-lg);
+            position: relative;
+            background: linear-gradient(180deg, transparent 0%, var(--bg-primary) 100%);
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, #fff 0%, #38bdf8 50%, #818cf8 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 20px rgba(99, 102, 241, 0.3));
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .hero-tagline {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-full);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-accent);
+            margin-bottom: var(--spacing-2xl);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Video showcase */
+        .video-showcase {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: var(--spacing-2xl) auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-xl), var(--shadow-glow);
+            opacity: 0;
+            animation: scaleIn 1s ease-out 1s forwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .video-showcase video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 var(--spacing-lg);
+            pointer-events: none;
+        }
+
+        .video-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-base);
+            pointer-events: auto;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+        }
+
+        .video-btn:hover {
+            background: rgba(99, 102, 241, 0.3);
+            transform: scale(1.1);
+            border-color: var(--primary);
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: var(--spacing-lg);
+            z-index: 100;
+            margin: var(--spacing-xl) auto;
+            max-width: 1200px;
+            padding: 0 var(--spacing-lg);
+            opacity: 0;
+            animation: fadeInDown 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-inner {
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-sm) var(--spacing-md);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-sm);
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            display: block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: var(--radius-lg);
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-accent);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover::before {
+            left: 0;
+        }
+
+        /* Sections */
+        .section {
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: var(--radius-full);
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Modern Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
+        }
+
+        /* Modern Card Design */
+        .project-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: var(--transition-base);
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(99, 102, 241, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: var(--shadow-xl), 0 20px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-media {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .project-media img,
+        .project-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .project-card:hover .project-media img,
+        .project-card:hover .project-media video {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: var(--spacing-lg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--gradient-accent);
+            color: var(--text-primary);
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: var(--spacing-lg);
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            width: 50px;
+            height: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-base);
+            color: var(--text-primary);
+            font-size: 1.5rem;
+        }
+
+        .modal-close:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: var(--danger);
+            transform: rotate(90deg);
+        }
+
+        /* Image Slider */
+        .slider {
+            position: relative;
+            margin: var(--spacing-xl) 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--bg-primary);
+        }
+
+        .slide {
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(10px);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-base);
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+        }
+
+        .slider-nav:hover {
+            background: rgba(99, 102, 241, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-nav.prev { left: var(--spacing-md); }
+        .slider-nav.next { right: var(--spacing-md); }
+
+        /* Platform Cards */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .platform-card {
+            display: block;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-lg);
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-base);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-accent);
+            border-radius: var(--radius-xl);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .platform-card:hover::after {
+            opacity: 0.3;
+        }
+
+        .platform-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+
+        .social-link:hover {
+            background: var(--gradient-accent);
+            color: var(--text-primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            z-index: 9999;
+            background: var(--bg-secondary);
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: var(--gradient-accent);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Animations for scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            :root {
+                font-size: 14px;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: var(--spacing-xs);
+            }
+
+            .projects-grid,
+            .platform-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .hero {
+                min-height: 90vh;
+                padding: var(--spacing-md);
+            }
+
+            .video-showcase {
+                margin: var(--spacing-lg) auto;
+            }
+
+            .modal-content {
+                padding: var(--spacing-lg);
+            }
+
+            .section {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-effect {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--glass-border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loadingScreen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">
+            ポートフォリオ
+            <span style="display: block; font-size: 0.3em; font-weight: 400; margin-top: 1rem;">
+                専門学校穴吹デザインカレッジ (Abubu)
+            </span>
+        </h1>
+        <p class="hero-subtitle">Game Developer & XR Engineer</p>
+        <div class="hero-tagline">作品に命を吹き込む、クリエイティブな世界へ</div>
+        
+        <!-- Video Showcase -->
+        <div class="video-showcase">
+            <video id="heroVideo" controls autoplay muted loop>
+                <source src="video/FantasyConnectMove.mp4" type="video/mp4">
+                お使いのブラウザは動画タグをサポートしていません。
+            </video>
+            <div class="video-controls">
+                <button class="video-btn" id="prevVideo" aria-label="前の動画">‹</button>
+                <button class="video-btn" id="nextVideo" aria-label="次の動画">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <ul class="nav-list">
+                <li><a href="#games" class="nav-link">ゲーム作品</a></li>
+                <li><a href="#metaverse" class="nav-link">メタバース</a></li>
+                <li><a href="#vrchat" class="nav-link">VRChat</a></li>
+                <li><a href="#cluster" class="nav-link">Cluster</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Games Section -->
+    <section id="games" class="section fade-in">
+        <div class="section-header">
+            <h2 class="section-title">ゲーム作品</h2>
+            <p class="section-description">主な作品集</p>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- FantasyConnect -->
+            <div class="project-card" data-modal="fantasyConnect">
+                <div class="project-media">
+                    <img src="image/FantasyConnectTitle.png" alt="FantasyConnect">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">FantasyConnect</h3>
+                    <p class="project-description">
+                        Unityで開発した3Dアクションゲーム。デザイン展2024にて最優秀賞を受賞した、ファンタジー世界を舞台にした冒険作品。
+                    </p>
+                    <div class="project-meta">
+                        <span class="project-tag">Unity</span>
+                        <span class="project-tag">3D Action</span>
+                        <span class="project-tag">2024年1月</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monster Hunters -->
+            <div class="project-card" data-modal="monsterHunters">
+                <div class="project-media">
+                    <img src="image/MonsterHuntersTitle.png" alt="Monster Hunters">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Monster Hunters</h3>
+                    <p class="project-description">
+                        Monobit Unity Networking 2.0を使用したオンラインアクションゲーム。商店街のイベントで多くの人にプレイしていただきました。
+                    </p>
+                    <div class="project-meta">
+                        <span class="project-tag">Unity</span>
+                        <span class="project-tag">マルチプレイ</span>
+                        <span class="project-tag">2024年1月</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 必笑～笑いのツボ職人～ -->
+            <div class="project-card" data-modal="hissho">
+                <div class="project-media">
+                    <img src="image/必笑～笑いのツボ職人～  (5).webp" alt="必笑～笑いのツボ職人～">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">必笑～笑いのツボ職人～</h3>
+                    <p class="project-description">
+                        GlobalGameJam2024で個人制作したオンラインクリックゲーム。2日間で開発し、シンプルな操作で楽しめる作品。
+                    </p>
+                    <div class="project-meta">
+                        <span class="project-tag">GameJam</span>
+                        <span class="project-tag">オンライン</span>
+                        <span class="project-tag">2024年1月</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- さんぶたレーシング -->
+            <div class="project-card" data-modal="sanbuta">
+                <div class="project-media">
+                    <img src="image/さんぶたレーシング (3).png" alt="さんぶたレーシング">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">さんぶたレーシング</h3>
+                    <p class="project-description">
+                        香川県の商店街GameJamでチーム制作したレーシングゲーム。地域の特色を活かした楽しい作品。
+                    </p>
+                    <div class="project-meta">
+                        <span class="project-tag">チーム開発</span>
+                        <span class="project-tag">レースゲーム</span>
+                        <span class="project-tag">2023年10月</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 居残授業 -->
+            <div class="project-card" data-modal="inokori">
+                <div class="project-media">
+                    <img src="image/居残授業 (2).png" alt="居残授業">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">居残授業</h3>
+                    <p class="project-description">
+                        1年次にOpenGLとC++で開発したチーム作品。プログラミング担当として、基礎から学んだ技術を結集。
+                    </p>
+                    <div class="project-meta">
+                        <span class="project-tag">OpenGL</span>
+                        <span class="project-tag">C++</span>
+                        <span class="project-tag">2023年1月</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ファンタジーコネクト2 -->
+            <div class="project-card" data-modal="fantasyConnect2">
+                <div class="project-media">
+                    <img src="image/ファンタジーコネクト2 (2).png" alt="ファンタジーコネクト2">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">ファンタジーコネクト 2</h3>
+                    <p class="project-description">
+                        2024年冬発売予定の続編。前作を超える新しい世界観と、より洗練されたゲームシステムを実装。
+                    </p>
+                    <div class="project-meta">
+                        <span class="project-tag">Unity</span>
+                        <span class="project-tag">開発中</span>
+                        <span class="project-tag">2024年12月</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metaverse Section -->
+    <section id="metaverse" class="section fade-in">
+        <div class="section-header">
+            <h2 class="section-title">メタバース</h2>
+            <p class="section-description">メタバース作品集</p>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card" style="grid-column: 1 / -1;">
+                <div class="project-media">
+                    <video controls autoplay muted loop>
+                        <source src="video/善通寺メタバース.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">善通寺メタバース</h3>
+                    <p class="project-description">
+                        プログラマーと3Dデザイナーの2名で開発、善通寺市をテーマにしたメタバース空間。
+                        地域の魅力を仮想空間で表現し、新しい体験価値を創造しています。
+                    </p>
+                    <div class="project-meta">
+                        <span class="project-tag">Unity</span>
+                        <span class="project-tag">メタバース</span>
+                        <span class="project-tag">ボイスチャット</span>
+                        <span class="project-tag">2023年4月〜</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VRChat Section -->
+    <section id="vrchat" class="section fade-in">
+        <div class="section-header">
+            <h2 class="section-title">VRchat worlds</h2>
+            <p class="section-description">VRChatで公開している没入型ワールド</p>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card" style="grid-column: 1 / -1;">
+                <div class="project-media">
+                    <video controls autoplay muted loop>
+                        <source src="video/NeonCity.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">NeonCity2024</h3>
+                    <p class="project-description">
+                        初めてVRChatにアップロードしたワールド。ネオンに彩られた未来都市をテーマに、
+                        サイバーパンクな雰囲気を演出しました。
+                    </p>
+                    <div class="project-meta">
+                        <a href="https://vrch.at/zc064nm6" target="_blank" class="btn">
+                            ワールドを訪問
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cluster Section -->
+    <section id="cluster" class="section fade-in">
+        <div class="section-header">
+            <h2 class="section-title">Cluster worlds</h2>
+            <p class="section-description">Clusterで展開する多彩なバーチャル空間</p>
+        </div>
+        
+        <div class="platform-grid">
+            <a href="https://cluster.mu/w/2a873311-f00d-4f7d-8962-d87a9f3c874a" target="_blank" class="platform-card">
+                <img src="image/Cluster (YUME).png" alt="City of Dreams">
+                <h3>City of Dreams</h3>
+                <p>夢の街をテーマにした幻想的なワールド</p>
+            </a>
+            
+            <a href="https://cluster.mu/w/409b4a43-9eb9-4250-959e-0c15fb14383c" target="_blank" class="platform-card">
+                <img src="image/Cluster (TOKYO).png" alt="Tokyo">
+                <h3>Tokyo</h3>
+                <p>東京っぽいバーチャル空間</p>
+            </a>
+            
+            <a href="https://cluster.mu/w/72b6461e-17b8-476a-92f2-ad02938bba75" target="_blank" class="platform-card">
+                <img src="image/Cluster (SAKURAMATI).png" alt="桜咲く街">
+                <h3>桜咲く街</h3>
+                <p>桜が舞う和風ワールド</p>
+            </a>
+            
+            <a href="https://cluster.mu/w/4bb17140-1752-409d-90b4-e9e75c7f1d7c" target="_blank" class="platform-card">
+                <img src="image/Cluster (Horror).jpg" alt="Horror">
+                <h3>Horror</h3>
+                <p>ホラー風ワールド</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3 class="text-gradient">Let's Connect</h3>
+            <p>ご相談はお気軽に</p>
+            <div class="social-links">
+                <a href="https://twitter.com/Abu831831" target="_blank" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                    </svg>
+                </a>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.7;">© 2024 Abubu Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="fantasyConnect" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2 class="project-title">FantasyConnect</h2>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="image/FantasyConnectTitle.png" alt="FantasyConnect 1">
+                </div>
+                <div class="slide">
+                    <img src="image/FantasyConnect (1).png" alt="FantasyConnect 2">
+                </div>
+                <div class="slide">
+                    <img src="image/FantasyConnect (2).png" alt="FantasyConnect 3">
+                </div>
+                <div class="slide">
+                    <img src="image/FantasyConnect (3).png" alt="FantasyConnect 4">
+                </div>
+                <div class="slide">
+                    <img src="image/FantasyConnect (4).png" alt="FantasyConnect 5">
+                </div>
+                <button class="slider-nav prev" data-slider="fantasyConnect">‹</button>
+                <button class="slider-nav next" data-slider="fantasyConnect">›</button>
+            </div>
+            <p>ファンタジーな世界観のアクションゲームを作りたいと思い作成した作品になります。今作ではプレイヤーが世界観を楽しめるように制作しており、一部NPCと会話できるようにしたり、ボス戦時にUnityの機能のタイムラインを使用した演出などを作成したりしております。また、プレイヤーは複数の武器を装備したり、動物に乗って移動を行うことが出来、戦闘や探索を楽しめるようにしており、戦闘面でもSEやエフェクト、ヒットストップなどを導入しているため、敵を撃破した際の、爽快感も味わえるようにしております。</p>
+        </div>
+    </div>
+
+    <div id="monsterHunters" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2 class="project-title">Monster Hunters</h2>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="image/MonsterHunters (1).png" alt="Monster Hunters 1">
+                </div>
+                <div class="slide">
+                    <img src="image/MonsterHunters (2).png" alt="Monster Hunters 2">
+                </div>
+                <div class="slide">
+                    <img src="image/MonsterHunters (3).png" alt="Monster Hunters 3">
+                </div>
+                <div class="slide">
+                    <img src="image/MonsterHunters (4).png" alt="Monster Hunters 4">
+                </div>
+                <div class="slide">
+                    <img src="image/MonsterHunters (5).png" alt="Monster Hunters 5">
+                </div>
+                <div class="slide">
+                    <img src="image/MonsterHunters (6).png" alt="Monster Hunters 6">
+                </div>
+                <button class="slider-nav prev" data-slider="monsterHunters">‹</button>
+                <button class="slider-nav next" data-slider="monsterHunters">›</button>
+            </div>
+            <p>初めてMonobit Unity Networking 2.0を使用して作成したオンラインシューティングゲーム作品になります。今作では「プレイヤーが自分に合ったキャラクターで戦える」をメインに考えており、プレイヤーキャラは12種類のキャラを導入し、それぞれのキャラが違った戦い方が出来るようにしています。また、敵も近接タイプや魔法攻撃を行ってくる敵などを作成し、少しでも戦闘を飽きにくくしております。</p>
+        </div>
+    </div>
+
+    <div id="hissho" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2 class="project-title">必笑～笑いのツボ職人～</h2>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="image/必笑～笑いのツボ職人～  (5).webp" alt="必笑 1">
+                </div>
+                <div class="slide">
+                    <img src="image/必笑～笑いのツボ職人～  (4).webp" alt="必笑 2">
+                </div>
+                <div class="slide">
+                    <img src="image/必笑～笑いのツボ職人～  (3).webp" alt="必笑 3">
+                </div>
+                <div class="slide">
+                    <img src="image/必笑～笑いのツボ職人～  (2).webp" alt="必笑 4">
+                </div>
+                <div class="slide">
+                    <img src="image/必笑～笑いのツボ職人～  (1).webp" alt="必笑 5">
+                </div>
+                <div class="slide">
+                    <img src="image/必笑～笑いのツボ職人～  (6).webp" alt="必笑 6">
+                </div>
+                <button class="slider-nav prev" data-slider="hissho">‹</button>
+                <button class="slider-nav next" data-slider="hissho">›</button>
+            </div>
+            <p>この作品はGlobal Game Jam2024にて個人で開発を行って作成しており、Monobit Unity Networking 2.0を使用して作成したオンラインゲームとなっております。ゲームのコンセプトは「クリックの操作だけで遊べるゲーム」となっており、ゲームの敵をマウスでクリックして攻撃を行ったり交わしたりできるようになっていて、ゲームが苦手な人でも操作しやすいように作っております。</p>
+        </div>
+    </div>
+
+    <div id="sanbuta" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2 class="project-title">さんぶたレーシング</h2>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="image/さんぶたレーシング (3).png" alt="さんぶたレーシング 1">
+                </div>
+                <div class="slide">
+                    <img src="image/さんぶたレーシング (4).png" alt="さんぶたレーシング 2">
+                </div>
+                <div class="slide">
+                    <img src="image/さんぶたレーシング (1).png" alt="さんぶたレーシング 3">
+                </div>
+                <div class="slide">
+                    <img src="image/さんぶたレーシング (5).png" alt="さんぶたレーシング 4">
+                </div>
+                <div class="slide">
+                    <img src="image/さんぶたレーシング (6).png" alt="さんぶたレーシング 5">
+                </div>
+                <div class="slide">
+                    <img src="image/さんぶたレーシング (2).png" alt="さんぶたレーシング 6">
+                </div>
+                <button class="slider-nav prev" data-slider="sanbuta">‹</button>
+                <button class="slider-nav next" data-slider="sanbuta">›</button>
+            </div>
+            <p>香川県の商店街で行われたお店とコラボした商店街ゲームジャムで、お店と商店街をテーマにしたゲーム開発を行いました。このゲームでは様々な人の企画を取り入れ商店街では普段できないレースを、ゲーム内で出来たら面白いと考え、作成しました。チーム開発で、私は主に敵の動きやその他一部アイテムや処理の修正、マップイラストやマップギミックの作成などを担当しました。</p>
+        </div>
+    </div>
+
+    <div id="inokori" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2 class="project-title">居残授業</h2>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="image/居残授業 (2).png" alt="居残授業 1">
+                </div>
+                <div class="slide">
+                    <img src="image/居残授業 (1).png" alt="居残授業 2">
+                </div>
+                <div class="slide">
+                    <img src="image/居残授業 (3).png" alt="居残授業 3">
+                </div>
+                <div class="slide">
+                    <img src="image/居残授業 (4).png" alt="居残授業 4">
+                </div>
+                <div class="slide">
+                    <img src="image/居残授業 (5).png" alt="居残授業 5">
+                </div>
+                <div class="slide">
+                    <img src="image/居残授業 (6).png" alt="居残授業 6">
+                </div>
+                <div class="slide">
+                    <img src="image/居残授業 (7).png" alt="居残授業 7">
+                </div>
+                <button class="slider-nav prev" data-slider="inokori">‹</button>
+                <button class="slider-nav next" data-slider="inokori">›</button>
+            </div>
+            <p>1年次の学校の授業で作成したOpenGLを使用したC++のチーム作品になります。自身はプログラムの部分を担当し、プレイヤーの動きやアニメーションの制御、マップチップの配置やシーン切り替え、HP等の部分を主に作成しました。</p>
+        </div>
+    </div>
+
+    <div id="fantasyConnect2" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2 class="project-title">ファンタジーコネクト 2</h2>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="image/ファンタジーコネクト2 (1).png" alt="ファンタジーコネクト2 1">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (2).png" alt="ファンタジーコネクト2 2">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (3).png" alt="ファンタジーコネクト2 3">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (4).png" alt="ファンタジーコネクト2 4">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (5).png" alt="ファンタジーコネクト2 5">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (6).png" alt="ファンタジーコネクト2 6">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (7).png" alt="ファンタジーコネクト2 7">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (8).png" alt="ファンタジーコネクト2 8">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (9).png" alt="ファンタジーコネクト2 9">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (10).png" alt="ファンタジーコネクト2 10">
+                </div>
+                <div class="slide">
+                    <img src="image/ファンタジーコネクト2 (11).png" alt="ファンタジーコネクト2 11">
+                </div>
+                <button class="slider-nav prev" data-slider="fantasyConnect2">‹</button>
+                <button class="slider-nav next" data-slider="fantasyConnect2">›</button>
+            </div>
+            <p>このゲームは、新しいオンラインアクションゲームで、複数のキャラクターを使って異なるプレイスタイルを楽しむことができます。ゲームの開発は約5ヶ月に渡って行われ、多くのフィードバックを元にバランス調整を行いました。</p>
+        </div>
+    </div>
+
+    <script>
+        // Portfolio App
+        const Portfolio = {
+            // Video sources
+            videoSources: [
+                "video/FantasyConnectMove.mp4",
+                "video/ファンタジーコネクトTL.mp4"
+            ],
+            currentVideoIndex: 0,
+            slideIndexes: new Map(),
+
+            init() {
+                this.initLoading();
+                this.initParticles();
+                this.initScrollProgress();
+                this.initScrollAnimations();
+                this.initVideoControls();
+                this.initModals();
+                this.initSliders();
+                this.initSmoothScroll();
+                console.log('✨ Portfolio initialized successfully');
+            },
+
+            // Loading screen
+            initLoading() {
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        const loader = document.getElementById('loadingScreen');
+                        if (loader) {
+                            loader.classList.add('hidden');
+                            setTimeout(() => loader.style.display = 'none', 500);
+                        }
+                    }, 500);
+                });
+            },
+
+            // Particle background
+            initParticles() {
+                const particlesContainer = document.getElementById('particles');
+                if (!particlesContainer) return;
+
+                const particleCount = 50;
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                    particlesContainer.appendChild(particle);
+                }
+            },
+
+            // Scroll progress bar
+            initScrollProgress() {
+                const progressBar = document.getElementById('scrollProgress');
+                if (!progressBar) return;
+
+                window.addEventListener('scroll', () => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrollPercent = (scrollTop / scrollHeight) * 100;
+                    progressBar.style.width = scrollPercent + '%';
+                });
+            },
+
+            // Scroll animations
+            initScrollAnimations() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.fade-in').forEach(el => {
+                    observer.observe(el);
+                });
+            },
+
+            // Video controls
+            initVideoControls() {
+                const prevBtn = document.getElementById('prevVideo');
+                const nextBtn = document.getElementById('nextVideo');
+                const video = document.getElementById('heroVideo');
+
+                if (!prevBtn || !nextBtn || !video) return;
+
+                prevBtn.addEventListener('click', () => this.changeVideo(-1));
+                nextBtn.addEventListener('click', () => this.changeVideo(1));
+            },
+
+            changeVideo(direction) {
+                const video = document.getElementById('heroVideo');
+                if (!video) return;
+
+                this.currentVideoIndex = (this.currentVideoIndex + direction + this.videoSources.length) % this.videoSources.length;
+                
+                video.style.opacity = '0.5';
+                setTimeout(() => {
+                    video.src = this.videoSources[this.currentVideoIndex];
+                    video.load();
+                    video.play().catch(() => {});
+                    video.style.opacity = '1';
+                }, 300);
+            },
+
+            // Modal controls
+            initModals() {
+                // Open modal
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const modalId = card.dataset.modal;
+                        this.openModal(modalId);
+                    });
+                });
+
+                // Close modal
+                document.querySelectorAll('.modal-close').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const modal = e.target.closest('.modal');
+                        this.closeModal(modal);
+                    });
+                });
+
+                // Close on backdrop click
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                            this.closeModal(modal);
+                        }
+                    });
+                });
+
+                // Close on ESC key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        const openModal = document.querySelector('.modal[style*="block"]');
+                        if (openModal) {
+                            this.closeModal(openModal);
+                        }
+                    }
+                });
+            },
+
+            openModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (!modal) return;
+
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                // Initialize slider for this modal
+                if (!this.slideIndexes.has(modalId)) {
+                    this.slideIndexes.set(modalId, 0);
+                }
+                this.showSlide(modalId, 0);
+            },
+
+            closeModal(modal) {
+                if (!modal) return;
+                
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            },
+
+            // Slider controls
+            initSliders() {
+                document.querySelectorAll('.slider-nav').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const sliderId = btn.dataset.slider;
+                        const direction = btn.classList.contains('next') ? 1 : -1;
+                        this.changeSlide(sliderId, direction);
+                    });
+                });
+            },
+
+            changeSlide(sliderId, direction) {
+                const modal = document.getElementById(sliderId);
+                if (!modal) return;
+
+                const slides = modal.querySelectorAll('.slide');
+                if (slides.length === 0) return;
+
+                let currentIndex = this.slideIndexes.get(sliderId) || 0;
+                currentIndex = (currentIndex + direction + slides.length) % slides.length;
+                
+                this.slideIndexes.set(sliderId, currentIndex);
+                this.showSlide(sliderId, currentIndex);
+            },
+
+            showSlide(sliderId, index) {
+                const modal = document.getElementById(sliderId);
+                if (!modal) return;
+
+                const slides = modal.querySelectorAll('.slide');
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+            },
+
+            // Smooth scroll
+            initSmoothScroll() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = anchor.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            const offsetTop = targetElement.offsetTop - 100;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            }
+        };
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => Portfolio.init());
+        } else {
+            Portfolio.init();
+        }
+
+        // Prevent context menu on images/videos
+        document.addEventListener('contextmenu', (e) => {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+                e.preventDefault();
+            }
+        });
+
+        // Performance optimization
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateElements);
+                ticking = true;
+            }
+        }
+
+        function updateElements() {
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', requestTick);
+        window.addEventListener('resize', requestTick);
+    </script>
+</body>
+</html>
+        
